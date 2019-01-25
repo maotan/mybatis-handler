@@ -13,4 +13,9 @@
     <!--     <mappers> -->
     <!--         <mapper resource="com/a/b/c/dao/BusinessInfoDaoMapper.xml" /> -->
     <!--     </mappers> -->
+
+    <typeHandlers>
+        <typeHandler handler="com.tan.mao.handler.MybatisJsonTypeHandler"
+                     javaType="com.fasterxml.jackson.databind.JsonNode"/>
+    </typeHandlers>
 </configuration>

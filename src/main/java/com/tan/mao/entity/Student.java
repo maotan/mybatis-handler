@@ -1,5 +1,7 @@
 package com.tan.mao.entity;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 import java.util.Date;
 import javax.persistence.*;
 
@@ -19,7 +21,7 @@ public class Student {
     private Integer score;
 
     @Column(name = "`info`")
-    private String info;
+    private JsonNode info;
 
     @Column(name = "`create_time`")
     private Date createTime;
@@ -83,14 +85,14 @@ public class Student {
     /**
      * @return info
      */
-    public String getInfo() {
+    public JsonNode getInfo() {
         return info;
     }
 
     /**
      * @param info
      */
-    public void setInfo(String info) {
+    public void setInfo(JsonNode info) {
         this.info = info;
     }
 

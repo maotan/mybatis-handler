@@ -9,7 +9,23 @@
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
     <result column="score" property="score" jdbcType="INTEGER" />
-    <result column="info" property="info" jdbcType="VARCHAR" />
+    <result column="info" property="info" jdbcType="VARCHAR" typeHandler="com.tan.mao.handler.MybatisJsonTypeHandler"/>
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
+
+  <insert id="save" parameterType="com.tan.mao.entity.Student" keyProperty="id" useGeneratedKeys="true">
+    insert into student(`name`, `age`, `score`, `info`)
+    values(
+      #{name},
+      #{age},
+      #{score},
+      #{info, jdbcType=VARCHAR, typeHandler=com.tan.mao.handler.MybatisJsonTypeHandler}
+    )
+  </insert>
+
+  <select id="get" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    SELECT id, `name`, `age`, `score`, `info`
+    from student
+    where id=#{id}
+  </select>
 </mapper>
