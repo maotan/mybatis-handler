@@ -13,6 +13,11 @@
 
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <property name="mappers" value="com.tan.mao.mapper.CommMapper"/>
+            <property name="forceAnnotation" value="true"/>
+            <!--<property name="beginningDelimiter" value="`"/>-->
+            <!--<property name="endingDelimiter" value="`"/>-->
+            <!--使用 Data 时，Getter,Setter 无效-->
+            <!--<property name="lombok" value="Getter,Setter,Data,ToString,Accessors,EqualsAndHashCode"/>-->
         </plugin>
 
         <commentGenerator>
@@ -36,9 +41,9 @@
         <javaClientGenerator targetPackage="com.tan.mao.mapper" targetProject="./src/main/java"
                              type="XMLMAPPER"/>
 
-        <table tableName="student" delimitAllColumns="true">
+        <table tableName="student11" delimitAllColumns="true">
         <!-- mvn mybatis-generator:generate (自动生成mapper、model、xml的命令)-->
-            <!--mysql 配置-->
+            <!--mysql 配置 -->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
             <!--oracle 配置-->
             <!--<generatedKey column="id" sqlStatement="select SEQ_{1}.nextval from dual" identity="false" type="pre"/>-->
