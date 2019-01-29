@@ -1,7 +1,9 @@
 package com.tan.mao.controller;
 
+import com.tan.mao.domain.enums.TeacherType;
 import com.tan.mao.entity.DemoTable;
 import com.tan.mao.entity.Student;
+import com.tan.mao.entity.Teacher;
 import com.tan.mao.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +31,21 @@ public class TestController {
     public Student save(@PathVariable("id") Long id) {
         Student st = testService.get(id);
         return st;
+    }
+
+    @RequestMapping(value = "/teacher", method = RequestMethod.POST)
+    public Teacher save() {
+        Teacher teacher = new Teacher();
+        teacher.setName("王是一");
+        teacher.setAge(36);
+        teacher.setType(TeacherType.HIGH);
+        return testService.save(teacher);
+    }
+
+    @RequestMapping(value = "/teacher/{id}", method = RequestMethod.GET)
+    public Teacher getById(@PathVariable("id") Long id) {
+        Teacher tea = testService.getTeacherById(id);
+        return tea;
     }
 
 }

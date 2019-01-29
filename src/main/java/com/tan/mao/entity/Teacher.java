@@ -1,10 +1,12 @@
 package com.tan.mao.entity;
 
+import com.tan.mao.domain.enums.TeacherType;
+
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "student11")
-public class Student11 {
+@Table(name = "teacher")
+public class Teacher {
     @Id
     @Column(name = "`id`")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,14 +15,14 @@ public class Student11 {
     @Column(name = "`name`")
     private String name;
 
+    /**
+     * ���ͣ�0һ�㣬1�߼���2�ؼ�
+     */
+    @Column(name = "`type`")
+    private TeacherType type;
+
     @Column(name = "`age`")
     private Integer age;
-
-    @Column(name = "`score`")
-    private Integer score;
-
-    @Column(name = "`order`")
-    private String order;
 
     @Column(name = "`create_time`")
     private Date createTime;
@@ -54,6 +56,24 @@ public class Student11 {
     }
 
     /**
+     * ��ȡ���ͣ�0һ�㣬1�߼���2�ؼ�
+     *
+     * @return type - ���ͣ�0һ�㣬1�߼���2�ؼ�
+     */
+    public TeacherType getType() {
+        return type;
+    }
+
+    /**
+     * �������ͣ�0һ�㣬1�߼���2�ؼ�
+     *
+     * @param type ���ͣ�0һ�㣬1�߼���2�ؼ�
+     */
+    public void setType(TeacherType type) {
+        this.type = type;
+    }
+
+    /**
      * @return age
      */
     public Integer getAge() {
@@ -65,34 +85,6 @@ public class Student11 {
      */
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    /**
-     * @return score
-     */
-    public Integer getScore() {
-        return score;
-    }
-
-    /**
-     * @param score
-     */
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    /**
-     * @return order
-     */
-    public String getOrder() {
-        return order;
-    }
-
-    /**
-     * @param order
-     */
-    public void setOrder(String order) {
-        this.order = order;
     }
 
     /**
